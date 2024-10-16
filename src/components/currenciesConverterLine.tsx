@@ -50,8 +50,6 @@ const CurrenciesConverterLine: React.FC<CurrenciesConverterLineProps> = ({onChan
             onDelete(currency.code)
     }
 
-
-
     // Determine the value to display
     let valueMoney = null;
     if (currency.isCurrencyToConvert) {

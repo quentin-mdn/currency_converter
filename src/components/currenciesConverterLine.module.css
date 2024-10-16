@@ -39,6 +39,7 @@
     transition: width 0.3s ease;
     overflow: hidden;
     margin-right: 10px;
+    touch-action: none;
 }
 
 .containerMove:active {
