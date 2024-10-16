@@ -6,7 +6,7 @@ import BottomBarRates from "@/components/bottomBarRates";
 
 export default function Home() {
     return (
-        <LayoutApp title={'Edit'} routeGoBack={'/'} afterWrap={<BottomBarRates />}>
+        <LayoutApp title={'Choose currencies'} routeGoBack={'/'} afterWrap={<BottomBarRates />}>
             <CurrenciesManager />
         </LayoutApp>
     );

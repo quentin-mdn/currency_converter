@@ -19,7 +19,7 @@ export interface CurrencySliceState {
 // Define the initial state
 const initialState: CurrencySliceState = {
     availableCurrencies: currencies, // Assuming currencies is a string array or similar
-    selectedCurrencies: [],
+    selectedCurrencies: ['sat', 'btc', 'USD'],
     exchangeRates: {},
     isExchangeRatesLoading: false,
     exchangeRatesDateLastRefresh: null,

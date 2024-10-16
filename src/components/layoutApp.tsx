@@ -3,7 +3,7 @@
 import styles from './layoutApp.module.css'
 import {useRouter} from "next/navigation";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faAngleLeft} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import React from 'react';
 
 interface LayoutAppProps {
@@ -28,20 +28,29 @@ const LayoutApp: React.FC<LayoutAppProps> = ({
             router.push(routeGoBack);
     };
 
+    const renderContainerTitle = () => {
+        return <div className={styles.containerTitle}>
+            <span className="h2">{title}</span>
+        </div>
+    }
+
     return (
         <div className={styles.container}>
-            <div className={styles.topBar}>
-                <div>
-                    {
-                        routeGoBack && <div className={styles.prevArrow} onClick={handleGoBack}><FontAwesomeIcon icon={faAngleLeft} /></div>
-                    }
-                </div>
-                <div className={styles.containerTitle}>
-                    <span className="h2">{title}</span>
-                </div>
-                <div></div>
+            {
+                routeGoBack ? (
+                    <div className={styles.topBar}>
+                        <div className={styles.prevArrow} onClick={handleGoBack}><FontAwesomeIcon icon={faArrowLeft}/></div>
+                        {renderContainerTitle()}
+                    </div>
+                ) : (
+                    <div className={styles.topBarCenter}>
+                        {renderContainerTitle()}
+                    </div>
+                )
+            }
+            <div className={styles.containerWrap}>
+                <div className={styles.wrap} style={styleWrap}>{children}</div>
             </div>
-            <div className={styles.wrap} style={styleWrap}>{children}</div>
             {afterWrap}
         </div>
     )

@@ -23,7 +23,9 @@ interface SelectedCurrency extends Currency{
 }
 
 const CurrencyManagerLine: React.FC<CurrencyManagerLineProps> = ({currency, onSelect}) => {
-    return <div key={currency.code} onClick={() => onSelect(currency)} className={styles.line}>
+    const classNameLine = currency.selected ? styles.line + ' ' + styles.lineSelected : styles.line;
+
+    return <div key={currency.code} onClick={() => onSelect(currency)} className={classNameLine}>
         <div className={styles.containerCode}>{currency.code}</div>
         <div className="containerFlag">
             <img
@@ -67,11 +69,11 @@ const CurrenciesManager = () => {
 
     const sections = [
         {
-            title: 'BITCOIN',
+            title: 'Bitcoin',
             currencyType: currencyBitcoin
         },
         {
-            title: 'FIAT',
+            title: 'Fiat',
             currencyType: currencyFiat
         }
     ]

@@ -3,28 +3,49 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
+    height: 100vh;
 }
 
 .topBar{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    background-color: var(--background2);
+    background-color: var(--bar-background);
+    border-color: var(--bar-border-color);
+    border-width: 0 0 1px 0;
+    border-style: solid;
+}
+
+.topBarCenter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bar-background);
+    border-color: var(--bar-border-color);
+    border-width: 0 0 1px 0;
+    border-style: solid;
 }
 
 .containerTitle{
-    padding: 0.7rem var(--gutter-x);
+    padding: 0.7rem 0;
+}
+
+.containerWrap{
+    overflow-y: auto;
+    flex-grow: 1;
 }
 
 .wrap{
     width: 100%;
     max-width: 600px;
-    border-radius: var(--border-radius);
-    border: solid 1px var(--border-color);
+    border-radius: var(--card-border-radius);
     padding: var(--gutter-y) var(--gutter-x);
-    margin: 1.5rem 0 50px 0;
     align-self: center;
+    box-shadow: var(--card-box-shadow);
+    background-color: var(--card-background);
+    margin: 1.5rem auto;
 }
 
 .prevArrow{
@@ -38,10 +59,14 @@
 }
 
 @media screen and (max-width: 768px){
+    .containerWrap{
+        background-color: var(--card-background);
+    }
+
     .wrap{
-        border: none !important;
         max-width: none;
-        margin: 0;
         border-radius: 0;
+        margin: 0;
+        box-shadow: none;
     }
 }

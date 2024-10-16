@@ -4,9 +4,24 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
 
-  --background: #ffffff;
+  --background: #f3f7fc;
   --color: #171717;
-  --background2: #f2ecf4;
+
+  --bar-background: #ffffff;
+  --bar-border-color: #eaeef3;
+
+  --card-background: #FFFFFF;
+  --card-box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.04) 0px 10px 20px 0px, rgba(0, 0, 0, 0.04) 0px 2px 6px 0px, rgba(0, 0, 0, 0.04) 0px 0px 1px 0px;
+  --card-border-radius: 0.25rem;
+
+  --line-selected-color: #fde0b3;
+  --line-hover-color: #fbc58a;
+  --line-border-color: #e0e0e0;
+
+  --input-border-radius: 4px;
+  --input-border-color: #c4c4c4;
+  --input-background: var(--card-background);
+  --input-color: var(--color);
 
   --elements-background: #f8931a;
   --elements-background-hover: #e57f16;
@@ -16,16 +31,25 @@
 
   --gutter-x: 1.5rem;
   --gutter-y: 1.5rem;
-
-  --border-radius: 0.25rem;
-  --border-color: #e0e0e0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #3b3838;
-    --color: #ededed;
-    --background2: #3B3838;
+    --background: #111213;
+    --color: #dfe0e2;
+
+    --bar-background: #151617;
+    --bar-border-color: #0c0d0d;
+
+    --card-background: #1c1d21;
+
+    --line-selected-color: #4c320b;
+    --line-hover-color: #996416;
+    --line-border-color: #0c0d0d;
+
+    --input-border-color: #474a4c;
+    --input-background: var(--card-background);
+    --input-color: var(--color);
   }
 }
 
@@ -64,10 +88,16 @@ input {
   font-weight: 400;
   line-height: 1.6;
   appearance: none;
-  border-radius: var(--border-radius);
-  border: solid 1px var(--border-color);
-  background-color: var(--background2);
-  color: var(--color);
+  border-radius: var(--input-border-radius);
+  border: solid 1px var(--input-border-color);
+  color: var(--input-color);
+  background-color: var(--input-background);
+}
+
+input:focus {
+  outline: none; /* Removes the default outline */
+  box-shadow: none; /* Removes any default box shadow */
+  background-color: transparent; /* Removes default background color */
 }
 
 /* Hide arrows in input number for Chrome, Safari, Edge, and Opera */
@@ -94,8 +124,8 @@ input[type="number"] {
 
 .containerFlag{
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   flex-shrink: 0;
   display: flex;
   justify-content: center;

@@ -20,7 +20,7 @@ export default function Home() {
   };
 
   return (
-    <LayoutApp title={'Converter'} afterWrap={<BottomBarRates />}>
+    <LayoutApp title={'Currency converter'} afterWrap={<BottomBarRates />}>
         <CurrenciesConverter isMovable={isMovable}/>
 
         <div className={styles.lineButtons}>
