@@ -24,7 +24,7 @@ const CurrenciesConverterLine: React.FC<CurrenciesConverterLineProps> = ({onChan
     const { attributes, listeners, setNodeRef, isDragging } = useSortable({
         id: currency.code
     });
-    const inputRef = useRef(null);
+    const inputRef = useRef<HTMLInputElement | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if(onChange)
@@ -35,9 +35,13 @@ const CurrenciesConverterLine: React.FC<CurrenciesConverterLineProps> = ({onChan
         if(onChange)
             onChange('', currency.code)
 
-        if (inputRef.current) {
-            inputRef.current.focus(); // Set focus on the input
-            inputRef.current.setSelectionRange(0, 0); // Set cursor position at the start
+        if (inputRef && inputRef.current) {
+            if ("focus" in inputRef.current) {
+                inputRef.current.focus();
+            }
+            if ("setSelectionRange" in inputRef.current) {
+                inputRef.current.setSelectionRange(0, 0);
+            }
         }
     }
 
