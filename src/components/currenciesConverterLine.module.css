@@ -1,0 +1,74 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.containerOpen{
+
+}
+
+.containerInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+}
+
+.containerEmpty{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.containerMove{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    align-self: stretch;
+    cursor: grab;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.containerMove:active {
+    cursor: grabbing; /* Change cursor to grabbing when dragging */
+}
+
+.containerOpen .containerMove{
+    width: 30px;
+}
+
+.containerDelete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    align-self: stretch;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    color: var(--delete-color);
+    font-size: 20px;
+}
+
+.containerOpen .containerDelete{
+    width: 30px;
+}
+
+.containerCode{
+    display: flex;
+    align-items: center;
+    width: 60px;
+    flex-shrink: 0;
+}
