@@ -1,13 +1,14 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Severity} from "@/components/alert";
+import {RootState} from "@/redux/store";
 
-export interface SnackBarElement {
+export interface SnackbarElement {
     message: string;
     severity: Severity;
     id: number;
 }
 
-const initialState: SnackBarElement[] = []
+const initialState: SnackbarElement[] = []
 
 const snackbarSlice = createSlice({
     name: 'snackbar',
@@ -27,7 +28,7 @@ const snackbarSlice = createSlice({
 export const { showSnackbar, hideSnackbar } = snackbarSlice.actions;
 
 // Selectors
-export const selectSnackbars = (state) => state.snackbars;
+export const selectSnackbars = (state: RootState) => state.snackbars;
 
 // Export the reducer
 export default snackbarSlice.reducer;
