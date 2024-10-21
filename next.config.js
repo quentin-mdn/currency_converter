@@ -5,9 +5,21 @@ const withPWA = require('next-pwa')({
     disable: process.env.NODE_ENV === 'development',
     runtimeCaching: [
         {
+            // Cache all pages in the root directory
+            urlPattern: /^(\/|\/edit)$/,
+            handler: 'NetworkFirst', // Tries to load from the network first, falls back to cache
+            options: {
+                cacheName: 'pages-cache',
+                expiration: {
+                    maxEntries: 20, // Cache up to 20 pages
+                    maxAgeSeconds: 7 * 24 * 60 * 60, // Cache pages for one week
+                },
+            },
+        },
+        {
             // Cache static files like JS, CSS, etc.
             urlPattern: /\.(?:js|css|html)$/,
-            handler: 'StaleWhileRevalidate',
+            handler: 'NetworkFirst',
             options: {
                 cacheName: 'static-resources',
                 expiration: {
