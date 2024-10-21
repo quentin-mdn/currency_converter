@@ -17,10 +17,6 @@
     background-color: var(--line-selected-color);
 }
 
-.line:hover{
-    background-color: var(--line-hover-color);
-}
-
 .lines{
     border-top: 1px solid var(--line-border-color);
 }
@@ -49,4 +45,10 @@
     justify-content: center;
     align-items: center;
     color: var(--elements-background);
+}
+
+@media (hover: hover) {
+    .line:hover{
+        background-color: var(--line-hover-color);
+    }
 }

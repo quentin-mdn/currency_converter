@@ -31,6 +31,10 @@
 
   --gutter-x: 1.5rem;
   --gutter-y: 1.5rem;
+
+  --alert-error-background: rgb(253, 237, 237);
+  --alert-error-icon-color: #d32f2f;
+  --alert-error-color: rgb(95, 33, 32);
 }
 
 @media (prefers-color-scheme: dark) {

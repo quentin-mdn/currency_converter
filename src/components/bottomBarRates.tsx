@@ -4,10 +4,13 @@ import {timeAgo} from "@/utils/utils";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faRefresh} from "@fortawesome/free-solid-svg-icons";
 import {useEffect, useState} from "react";
+import {Severity} from "@/components/alert";
+import useSnackbar from "@/hooks/useSnackbar";
 
 export default function BottomBarRates() {
     const {refreshExchangeRates, getExchangeRatesDateLastRefresh, isExchangeRatesLoading} = useExchangeRates();
     const [, setRefreshKey] = useState(0);
+    const snackbar = useSnackbar()
 
     // Rerender every minut for bottom bar timer
     useEffect(() => {
@@ -19,7 +22,10 @@ export default function BottomBarRates() {
     }, []);
 
     const handleClick = () => {
-        refreshExchangeRates();
+        refreshExchangeRates()
+            .catch(() => {
+                snackbar('An error occurred while fetching rates. Please check your internet connection.', Severity.Error);
+            })
     }
 
     const exchangeRatesDateLastRefresh = getExchangeRatesDateLastRefresh();

@@ -8,6 +8,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import {PersistGate} from "redux-persist/integration/react";
 import Head from "next/head";
+import Snackbar from "@/components/snackbar";
 config.autoAddCss = false; // Prevent FontAwesome from adding its CSS automatically
 
 const geistSans = localFont({
@@ -26,30 +27,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-    <Head>
-        <title>Currency converter</title>
-        <meta charSet="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="theme-color" content="#000000"/>
-        {/* Link to the favicon */}
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="shortcut icon" href="/favicon.ico"/>
-        {/* Optional: Link to additional icons for PWA */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-512x512.png"/>
-        {/* You can add more meta tags or links here */}
-    </Head>
-    <body className={`${geistSans.variable} ${geistMono.variable}`}>
-    <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-            {children}
-        </PersistGate>
-    </Provider>
-    </body>
-    </html>
-)
-  ;
+    return (
+        <html lang="en">
+            <Head>
+                <meta charSet="UTF-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <meta name="theme-color" content="#000000"/>
+                {/* Link to the favicon */}
+                <link rel="icon" href="/favicon.ico"/>
+                <link rel="shortcut icon" href="/favicon.ico"/>
+                {/* Optional: Link to additional icons for PWA */}
+                <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png"/>
+                <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png"/>
+                <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-512x512.png"/>
+                {/* You can add more meta tags or links here */}
+            </Head>
+            <body className={`${geistSans.variable} ${geistMono.variable}`}>
+                <Provider store={store}>
+                    <PersistGate loading={null} persistor={persistor}>
+                        {children}
+                        <Snackbar />
+                    </PersistGate>
+                </Provider>
+            </body>
+        </html>
+    );
 }

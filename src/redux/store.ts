@@ -2,9 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import currenciesReducer, {CurrencySliceState} from './slices/currenciesSlice';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage
 import { persistStore, persistReducer } from 'redux-persist';
+import SnackbarSlice, {SnackBarElement} from "@/redux/slices/snackbarSlice";
 
 export interface RootState {
-    currencies: CurrencySliceState
+    currencies: CurrencySliceState,
+    snackbars: SnackBarElement[]
 }
 
 const currenciesPersistConfig = {
@@ -19,6 +21,7 @@ const persistedCurrenciesReducer = persistReducer(currenciesPersistConfig, curre
 const store = configureStore({
     reducer: {
         currencies: persistedCurrenciesReducer,
+        snackbars: SnackbarSlice
     },
 });
 
