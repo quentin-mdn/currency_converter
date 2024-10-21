@@ -1,8 +1,9 @@
 {
-  "name": "Money converter",
-  "short_name": "Money converter",
-  "description": "Money converter.",
-  "start_url": ".",
+  "id": "/",
+  "name": "Currency converter",
+  "short_name": "Currency converter",
+  "description": "Currency converter.",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
