@@ -50,6 +50,13 @@ const CurrenciesConverterLine: React.FC<CurrenciesConverterLineProps> = ({onChan
             onDelete(currency.code)
     }
 
+    const handleTouchStart = (event: React.TouchEvent) => {
+        event.preventDefault(); // Prevent default behavior that causes scrolling
+        // Focus the input manually without scrolling
+        if (inputRef && inputRef.current && "focus" in inputRef.current)
+            inputRef.current.focus({preventScroll: true});
+    };
+
     // Determine the value to display
     let valueMoney = null;
     if (currency.isCurrencyToConvert) {
@@ -92,6 +99,7 @@ const CurrenciesConverterLine: React.FC<CurrenciesConverterLineProps> = ({onChan
                     value={valueMoney} // Bind input value to state
                     onChange={handleChange} // Update state on change
                     ref={inputRef}
+                    onTouchStart={handleTouchStart}
                 />
                 {
                     valueMoney !== '' && <div className={styles.containerEmpty} onClick={emptyLine}>
