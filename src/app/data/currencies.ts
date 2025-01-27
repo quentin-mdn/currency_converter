@@ -29,5 +29,6 @@ export const currencies: Currency[] = [
     { code: 'KRW', name: 'South Korean Won', image: '/images/flags/kr.png', nbDecimals: 0, type: currencyFiat },
     { code: 'RUB', name: 'Russian Ruble', image: '/images/flags/ru.png', nbDecimals: 2, type: currencyFiat },
     { code: 'SGD', name: 'Singapore Dollar', image: '/images/flags/sg.png', nbDecimals: 2, type: currencyFiat },
-    { code: 'NZD', name: 'New Zealand Dollar', image: '/images/flags/nz.png', nbDecimals: 2, type: currencyFiat }
+    { code: 'NZD', name: 'New Zealand Dollar', image: '/images/flags/nz.png', nbDecimals: 2, type: currencyFiat },
+    { code: 'COP', name: 'Colombian Peso', image: '/images/flags/co.png', nbDecimals: 2, type: currencyFiat }
 ]
